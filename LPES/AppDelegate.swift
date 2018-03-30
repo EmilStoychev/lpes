@@ -31,7 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UAirship.push().addTags(["gender_male", "age_31", "email_emil.sp@gmail.com"])
         UAirship.push().updateRegistration()
         
+        let productAddedToCartEvent = UACustomEvent(name: "added_product_to_cart")
+        productAddedToCartEvent.setStringProperty("XX-123", forKey: "productID")
+        productAddedToCartEvent.track()
         
+        let productPurchasedEvent = UACustomEvent(name: "purchased_product")
+        productPurchasedEvent.setStringProperty("XX-123", forKey: "productID")
+        productPurchasedEvent.track()
         // UAirship end
 
         // Leanplum start
