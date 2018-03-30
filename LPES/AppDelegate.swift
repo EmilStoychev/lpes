@@ -28,10 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UAirship.push().defaultPresentationOptions = [.alert, .badge, .sound]
         
         UAirship.namedUser().identifier = "emil-stoychev"
-        UAirship.push().addTags(["male"], group: "gender")
-        UAirship.push().addTags(["31"], group: "age")
-        UAirship.push().addTags(["emil.sp@gmail.com"], group: "email")
+        UAirship.push().addTags(["gender_male", "age_31", "email_emil.sp@gmail.com"])
         UAirship.push().updateRegistration()
+        
         
         // UAirship end
 
