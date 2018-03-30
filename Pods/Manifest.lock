@@ -1,0 +1,15 @@
+PODS:
+  - Leanplum-iOS-SDK (2.0.5)
+  - UrbanAirship-iOS-SDK (9.0.3)
+
+DEPENDENCIES:
+  - Leanplum-iOS-SDK
+  - UrbanAirship-iOS-SDK
+
+SPEC CHECKSUMS:
+  Leanplum-iOS-SDK: d7d387b7f3688e697f2893978bfe67092df5b7ca
+  UrbanAirship-iOS-SDK: 2dca9836a46c4b3d91337e780226cd60fc4d309b
+
+PODFILE CHECKSUM: 30c5d8cffb593de15bfcb71153bfee5df303447e
+
+COCOAPODS: 1.4.0

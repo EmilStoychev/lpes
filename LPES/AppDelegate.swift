@@ -8,15 +8,48 @@
 
 import UIKit
 import CoreData
+import AirshipKit
+#if DEBUG
+    import AdSupport
+#endif
+import Leanplum
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // UAirship start
+        UAirship.takeOff()
+        UAirship.push().userPushNotificationsEnabled = true
+        UAirship.push().defaultPresentationOptions = [.alert, .badge, .sound]
+        
+        UAirship.namedUser().identifier = "emil-stoychev"
+        UAirship.push().addTags(["male"], group: "gender")
+        UAirship.push().addTags(["31"], group: "age")
+        UAirship.push().addTags(["emil.sp@gmail.com"], group: "email")
+        UAirship.push().updateRegistration()
+        
+        // UAirship end
+
+        // Leanplum start
+        #if DEBUG
+            Leanplum.setDeviceId(ASIdentifierManager.shared().advertisingIdentifier.uuidString)
+            Leanplum.setAppId("app_h4mOpAzrY0Cw9Xp4e9Q9BGKOg8SfrUHXClP4Nq3cZN8",
+                              withDevelopmentKey:"dev_BBb9fRjv1K5hdOoYYZnSeJ4mEShmH1yKCUGGMp5ItLc")
+        #else
+            Leanplum.setAppId("app_h4mOpAzrY0Cw9Xp4e9Q9BGKOg8SfrUHXClP4Nq3cZN8",
+                              withProductionKey: "prod_sfaapQmHIJ9UNdcdfqjGFzDYRsct9gHACCeleNg4oqg")
+        #endif
+        
+        // Starts a new session and updates the app content from Leanplum.
+        Leanplum.start(withUserId: "emil-stoychev",
+                       userAttributes: ["gender":"male", "age": 31, "email":"emil.sp@gmail.com"])
+        // Leanplum end
+        
         return true
     }
 
