@@ -13,6 +13,7 @@ import AirshipKit
     import AdSupport
 #endif
 import Leanplum
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // UAirship start
+        /* ––– UAirship Start ––– */
         UAirship.takeOff()
         UAirship.push().userPushNotificationsEnabled = true
         UAirship.push().defaultPresentationOptions = [.alert, .badge, .sound]
@@ -38,9 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let productPurchasedEvent = UACustomEvent(name: "purchased_product")
         productPurchasedEvent.setStringProperty("XX-123", forKey: "productID")
         productPurchasedEvent.track()
-        // UAirship end
+        /* ––– UAirship End ––– */
 
-        // Leanplum start
+        /* ––– Leanplum Start ––– */
         #if DEBUG
             Leanplum.setDeviceId(ASIdentifierManager.shared().advertisingIdentifier.uuidString)
             Leanplum.setAppId("app_h4mOpAzrY0Cw9Xp4e9Q9BGKOg8SfrUHXClP4Nq3cZN8",
@@ -52,8 +53,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Starts a new session and updates the app content from Leanplum.
         Leanplum.start(withUserId: "emil-stoychev",
-                       userAttributes: ["gender":"male", "age": 31, "email":"emil.sp@gmail.com"])
-        // Leanplum end
+                       userAttributes: ["gender":"male",
+                                        "age": 31,
+                                        "email":"emil.sp@gmail.com", "name": "Emil"])
+        
+        Leanplum.track("added_product_to_cart", withInfo: "XX-123")
+        
+        Leanplum.track("purchased_product", withInfo: "XX-123")
+        /* ––– Leanplum End ––– */
+        
+        /* ––– Firebase Start ––– */
+        FirebaseApp.configure()
+        
+        Analytics.setUserProperty("male", forName: "gender")
+        Analytics.setUserProperty("31", forName: "age")
+        Analytics.setUserProperty("emil.sp@gmail.com", forName: "email")
+        
+        Analytics.logEvent("added_product_to_cart", parameters: [
+            "productID": "XX-123" as NSObject
+            ])
+        Analytics.logEvent("purchased_product", parameters: [
+            "productID": "XX-123" as NSObject
+            ])
+        
+        /* ––– Firebase End ––– */
         
         return true
     }

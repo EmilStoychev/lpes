@@ -5,4 +5,6 @@ use_frameworks!
 target 'LPES' do
     pod 'UrbanAirship-iOS-SDK'
     pod 'Leanplum-iOS-SDK'
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
 end

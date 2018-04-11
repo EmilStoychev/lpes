@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		676A777D17790C452B11A320 /* Pods_LPES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AC1395FA3DF947B0E13E033 /* Pods_LPES.framework */; };
 		696DEDC9206D6E4E0005D594 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 696DEDC8206D6E4E0005D594 /* AirshipConfig.plist */; };
+		696DEDCB206E88010005D594 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 696DEDCA206E88000005D594 /* GoogleService-Info.plist */; };
 		69DDB0CD206D56F80021C17F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DDB0CC206D56F80021C17F /* AppDelegate.swift */; };
 		69DDB0CF206D56F90021C17F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DDB0CE206D56F90021C17F /* ViewController.swift */; };
 		69DDB0D2206D56F90021C17F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69DDB0D0206D56F90021C17F /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		4949BD60CEFA8FB77568A3C7 /* Pods-LPES.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LPES.release.xcconfig"; path = "Pods/Target Support Files/Pods-LPES/Pods-LPES.release.xcconfig"; sourceTree = "<group>"; };
 		696DEDC8206D6E4E0005D594 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
+		696DEDCA206E88000005D594 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69DDB0C9206D56F80021C17F /* LPES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LPES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69DDB0CC206D56F80021C17F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69DDB0CE206D56F90021C17F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		69DDB0CB206D56F80021C17F /* LPES */ = {
 			isa = PBXGroup;
 			children = (
+				696DEDCA206E88000005D594 /* GoogleService-Info.plist */,
 				696DEDC8206D6E4E0005D594 /* AirshipConfig.plist */,
 				69DDB0E3206D58EC0021C17F /* LPES.entitlements */,
 				69DDB0E1206D57690021C17F /* Leanplum Logotype (White).png */,
@@ -174,6 +177,7 @@
 				69DDB0D2206D56F90021C17F /* Main.storyboard in Resources */,
 				696DEDC9206D6E4E0005D594 /* AirshipConfig.plist in Resources */,
 				69DDB0E2206D57690021C17F /* Leanplum Logotype (White).png in Resources */,
+				696DEDCB206E88010005D594 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,13 +209,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LPES/Pods-LPES-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${PODS_ROOT}/Leanplum-iOS-SDK/Leanplum.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/UrbanAirship-iOS-SDK/AirshipKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Leanplum.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AirshipKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
